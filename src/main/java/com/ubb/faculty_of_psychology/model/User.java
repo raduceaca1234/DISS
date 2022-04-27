@@ -9,10 +9,8 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "users")
+@MappedSuperclass
 public class User implements Serializable {
 
     @Id
