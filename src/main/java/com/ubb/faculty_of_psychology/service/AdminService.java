@@ -1,5 +1,6 @@
 package com.ubb.faculty_of_psychology.service;
 
+import com.ubb.faculty_of_psychology.model.Admin;
 import com.ubb.faculty_of_psychology.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,4 +17,9 @@ public class AdminService {
         this.repository = repository;
         this.encoder = encoder;
     }
+
+    public Admin findAdminByEmail(String email){
+        return repository.findAdminByEmail(email).get();
+    }
+
 }

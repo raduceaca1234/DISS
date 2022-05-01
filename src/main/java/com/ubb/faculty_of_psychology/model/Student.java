@@ -22,4 +22,8 @@ public class Student extends User {
 
     @Column(name = "form_of_education")
     private String formOfEducation;
+
+    Student(){
+        super.setRole("student");
+    }
 }

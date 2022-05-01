@@ -5,8 +5,6 @@ import com.ubb.faculty_of_psychology.filters.LoginFilter;
 import com.ubb.faculty_of_psychology.service.AdminDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -38,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .addFilterBefore(new LoginFilter("/authenticate", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
 //                .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         http.csrf().disable().cors().and().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/admin/**").permitAll()
                 .anyRequest().authenticated()
                 .and()

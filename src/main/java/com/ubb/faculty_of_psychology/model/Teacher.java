@@ -13,4 +13,8 @@ public class Teacher extends User {
 
     @Column
     private String specialization;
+
+    Teacher(){
+        super.setRole("teacher");
+    }
 }
