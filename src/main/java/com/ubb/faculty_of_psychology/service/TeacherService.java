@@ -19,6 +19,8 @@ public class TeacherService {
     }
 
     public Teacher findTeacherByEmail(String email){
-        return repository.findTeacherByEmail(email).get();
+        if(repository.findTeacherByEmail(email).isPresent())
+            return repository.findTeacherByEmail(email).get();
+        else return null;
     }
 }

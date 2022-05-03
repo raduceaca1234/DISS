@@ -19,6 +19,8 @@ public class StudentService {
     }
 
     public Student findStudentByEmail(String email){
-        return repository.findStudentByEmail(email).get();
+        if(repository.findStudentByEmail(email).isPresent())
+            return repository.findStudentByEmail(email).get();
+        else return null;
     }
 }

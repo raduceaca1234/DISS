@@ -32,8 +32,8 @@ public class LoginController {
             model.addAttribute("logoutMessage", "Logout Successful!");
         }
 
-        if(adminService.findAdminByEmail(user.getEmail()).getRole().equals("admin")) return "admin";
-        else if(studentService.findStudentByEmail(user.getEmail()).getRole().equals("student")) return "student";
+        if(studentService.findStudentByEmail(user.getEmail()).getRole().equals("student")) return "student";
+        else if(adminService.findAdminByEmail(user.getEmail()).getRole().equals("admin")) return "admin";
         else if(teacherService.findTeacherByEmail(user.getEmail()).getRole().equals("teacher")) return "teacher";
         return null;
     }

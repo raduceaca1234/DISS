@@ -12,6 +12,11 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    @RequestMapping("/hello")
+    public String hello(){
+        return "Hello";
+    }
+
 //
 //    @GetMapping("/admin")
 //    public String adminPage(Principal principal, Model model) {

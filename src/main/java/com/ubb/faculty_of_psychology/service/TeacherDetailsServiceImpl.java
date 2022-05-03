@@ -24,8 +24,8 @@ public class TeacherDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Teacher admin = repository.findTeacherByEmail(username)
+        Teacher teacher = repository.findTeacherByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User: " + username + " not found"));
-        return new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getPassword(), Collections.singletonList(new SimpleGrantedAuthority("ROLE_TEACHER")));
+        return new org.springframework.security.core.userdetails.User(teacher.getEmail(), teacher.getPassword(), Collections.singletonList(new SimpleGrantedAuthority(teacher.getRole())));
     }
 }

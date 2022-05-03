@@ -22,8 +22,8 @@ public class StudentDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        Student admin = studentRepository.findStudentByEmail(username)
+        Student student = studentRepository.findStudentByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User: " + username + " not found"));
-        return new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getPassword(), Collections.singletonList(new SimpleGrantedAuthority("ROLE_STUDENT")));
+        return new org.springframework.security.core.userdetails.User(student.getEmail(), student.getPassword(), Collections.singletonList(new SimpleGrantedAuthority(student.getRole())));
     }
 }

@@ -19,7 +19,9 @@ public class AdminService {
     }
 
     public Admin findAdminByEmail(String email){
-        return repository.findAdminByEmail(email).get();
+        if(repository.findAdminByEmail(email).isPresent())
+            return repository.findAdminByEmail(email).get();
+        else return null;
     }
 
 }

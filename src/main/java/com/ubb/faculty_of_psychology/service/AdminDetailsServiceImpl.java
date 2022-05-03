@@ -25,6 +25,6 @@ public class AdminDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) {
         Admin admin = adminRepository.findAdminByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User: " + username + " not found"));
-        return new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getPassword(), Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN")));
+        return new org.springframework.security.core.userdetails.User(admin.getEmail(), admin.getPassword(), Collections.singletonList(new SimpleGrantedAuthority(admin.getRole())));
     }
 }
