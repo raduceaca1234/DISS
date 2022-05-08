@@ -1,8 +1,12 @@
 package com.ubb.faculty_of_psychology.model;
 
+import lombok.Getter;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Getter
 public class Teacher extends User {
 
     @Column(name = "first_name")
@@ -13,6 +17,13 @@ public class Teacher extends User {
 
     @Column
     private String specialization;
+
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+    private List<String> domainOfInterest;
+
+    @OneToMany
+    @ElementCollection(targetClass = Student.class, fetch = FetchType.EAGER)
+    private List<Student> students;
 
     Teacher(){
         super.setRole("teacher");

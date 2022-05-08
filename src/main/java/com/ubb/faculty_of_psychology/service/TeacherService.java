@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeacherService {
 
@@ -22,5 +24,9 @@ public class TeacherService {
         if(repository.findTeacherByEmail(email).isPresent())
             return repository.findTeacherByEmail(email).get();
         else return null;
+    }
+
+    public List<Teacher> getTeachers() {
+        return (List<Teacher>) repository.findAll();
     }
 }

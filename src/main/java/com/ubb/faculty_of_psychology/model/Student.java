@@ -1,8 +1,11 @@
 package com.ubb.faculty_of_psychology.model;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
 public class Student extends User {
 
     @Column(name = "first_name")

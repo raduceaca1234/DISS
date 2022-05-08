@@ -1,7 +1,5 @@
 package com.ubb.faculty_of_psychology.dto;
 
-import com.ubb.faculty_of_psychology.service.JwtTokenService;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
