@@ -22,13 +22,13 @@ public class StudentController {
 
     @RequestMapping("teachers")
     public List<Teacher> allTeachers(){
-        return teacherService.getTeachers();
+        return teacherService.findAll();
     }
 
     @RequestMapping("teacher/{domain}")
     public List<Teacher> allTeachersByDomain( @PathVariable String domain) {
         List<Teacher> filteredTeachers = new ArrayList<>();
-        for(Teacher teacher: teacherService.getTeachers()){
+        for(Teacher teacher: teacherService.findAll()){
             if(teacher.getDomainOfInterest().equals(domain)) filteredTeachers.add(teacher);
         }
         return filteredTeachers;
