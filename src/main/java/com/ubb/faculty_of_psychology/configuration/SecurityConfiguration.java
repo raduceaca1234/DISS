@@ -29,15 +29,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().cors().and().authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/admin/**").access("hasRole('admin')")
-                .antMatchers("/student/**").access("hasRole('student')")
-                .antMatchers("/teacher/**").access("hasRole('teacher')")
-                .anyRequest().authenticated()
-                .and()
-                .addFilterBefore(new LoginFilter("/authenticate", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.csrf().disable();
+//                .cors().and().authorizeRequests()
+//                .antMatchers("/login").permitAll()
+//                .antMatchers("/admin/**").access("hasRole('admin')")
+//                .antMatchers("/student/**").access("hasRole('student')")
+//                .antMatchers("/teacher/**").access("hasRole('teacher')")
+//                .anyRequest().authenticated()
+//                .and()
+//                .addFilterBefore(new LoginFilter("/authenticate", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Autowired
